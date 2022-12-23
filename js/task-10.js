@@ -15,8 +15,6 @@ refs.destroyButtonEl.addEventListener("click", onDestroyElement);
 
 let amountValue = 0;
 
-const divElements = [];
-
 function onInputValue(e) {
   amountValue = e.target.valueAsNumber;
 }
@@ -30,6 +28,21 @@ function onDestroyElement() {
 }
 
 function createBoxes(amountValue) {
+  // !Бідьш вірніший варіант
+  const divElements = [];
+  let width = 20;
+  let height = 20;
+  for (let i = 0; i < amountValue; i += 1) {
+    width += 10;
+    height += 10;
+
+    const el = `<div style="background-color:${getRandomHexColor()}; width: ${width}px; height: ${height}px;"></div>`;
+
+    divElements.push(el);
+  }
+  addBoxes(divElements);
+
+  // ? Не вірно працюючий варіант
   // for (let i = 1; i <= amountValue; i += 1) {
   //   const el = document.createElement("div");
   //   el.style.backgroundColor = getRandomHexColor();
@@ -41,22 +54,12 @@ function createBoxes(amountValue) {
 
   // console.log(...divElements);
   // refs.newElinDivBoxes.append(...divElements);
-
-  // for (let i = 0; i < amountValue; i += 1) {
-  //   const el = `<div style="background-color:${getRandomHexColor()}; width: 30px; height: 30px;"></div>`;
-
-  //   divElements.push(el);
-  // }
-
-  // refs.newElinDivBoxes.insertAdjacentHTML("beforeend", divElements.join(""));
-
-  for (let i = 0; i < amountValue; i += 1) {
-    refs.newElinDivBoxes.insertAdjacentHTML(
-      "beforeend",
-      `<div style="background-color:${getRandomHexColor()}; width: 30px; height: 30px;"></div>`
-    );
-  }
 }
+
+function addBoxes(divElements) {
+  refs.newElinDivBoxes.insertAdjacentHTML("beforeend", divElements.join(""));
+}
+
 function destroyBoxes() {
   refs.newElinDivBoxes.innerHTML = "";
   refs.divEl.firstElementChild.value = "";
