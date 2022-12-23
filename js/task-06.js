@@ -8,7 +8,7 @@ refs.inputEl.addEventListener("input", onValue);
 refs.inputEl.addEventListener("blur", onValidColorBorder);
 refs.inputEl.addEventListener("focus", removeClass);
 
-function onValue() {
+function onValue(event) {
   console.log(event.currentTarget.value);
 }
 
