@@ -46,8 +46,8 @@ function createBoxes(amountValue) {
   // for (let i = 1; i <= amountValue; i += 1) {
   //   const el = document.createElement("div");
   //   el.style.backgroundColor = getRandomHexColor();
-  //   el.style.width = 300;
-  //   el.style.height = 200;
+  //   ???? el.style.width = 300;
+  //   ???? el.style.height = 200;
 
   //   divElements.push(el);
   // }
